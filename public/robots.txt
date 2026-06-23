@@ -1,0 +1,7 @@
+# robots.txt for BookMySalon
+
+User-agent: *
+Disallow:
+
+# Link to sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
