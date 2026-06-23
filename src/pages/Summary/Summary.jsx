@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { CheckCircle, Calendar, Clock, User, Phone, Mail, MessageSquare, MapPin, Edit, ArrowLeft } from 'lucide-react';
-import { servicesData } from '../Services/servicesdata';
+import React, { useState } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import {
+  CheckCircle,
+  Calendar,
+  Clock,
+  User,
+  Phone,
+  Mail,
+  MessageSquare,
+  MapPin,
+  Edit,
+  ArrowLeft,
+} from "lucide-react";
+import { servicesData } from "../Services/Servicesdata";
 
 const Summary = () => {
   const location = useLocation();
@@ -15,8 +26,12 @@ const Summary = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50 flex items-center justify-center">
         <div className="text-center px-4">
-          <h1 className="text-3xl font-bold text-amber-900 mb-4">Tidak Ada Data Booking</h1>
-          <p className="text-stone-600 mb-6">Silakan isi form booking terlebih dahulu</p>
+          <h1 className="text-3xl font-bold text-amber-900 mb-4">
+            Tidak Ada Data Booking
+          </h1>
+          <p className="text-stone-600 mb-6">
+            Silakan isi form booking terlebih dahulu
+          </p>
           <Link
             to="/booking"
             className="inline-block bg-gradient-to-r from-amber-600 to-orange-700 text-white px-8 py-3 rounded-full font-semibold hover:from-amber-700 hover:to-orange-800 transition"
@@ -28,19 +43,26 @@ const Summary = () => {
     );
   }
 
-  const selectedService = servicesData.find(s => s.id === parseInt(bookingData.service));
+  const selectedService = servicesData.find(
+    (s) => s.id === parseInt(bookingData.service),
+  );
 
   const formatDate = (dateString) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     const date = new Date(dateString);
-    return date.toLocaleDateString('id-ID', options);
+    return date.toLocaleDateString("id-ID", options);
   };
 
   const handleConfirmBooking = async () => {
     setIsSubmitting(true);
-    
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setIsConfirmed(true);
   };
@@ -58,21 +80,26 @@ const Summary = () => {
                 Booking Berhasil!
               </h1>
               <p className="text-lg text-stone-600 mb-6">
-                Terima kasih telah mempercayai kami untuk perawatan kecantikan Anda
+                Terima kasih telah mempercayai kami untuk perawatan kecantikan
+                Anda
               </p>
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 mb-8 border border-amber-200">
-              <h2 className="font-bold text-amber-900 mb-4 text-lg">Detail Appointment</h2>
+              <h2 className="font-bold text-amber-900 mb-4 text-lg">
+                Detail Appointment
+              </h2>
               <div className="space-y-3 text-left">
                 <div className="flex items-start gap-3">
                   <User className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-stone-600">Nama</p>
-                    <p className="font-semibold text-stone-800">{bookingData.name}</p>
+                    <p className="font-semibold text-stone-800">
+                      {bookingData.name}
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <Calendar className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                   <div>
@@ -82,12 +109,14 @@ const Summary = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-stone-600">Layanan</p>
-                    <p className="font-semibold text-stone-800">{selectedService?.name}</p>
+                    <p className="font-semibold text-stone-800">
+                      {selectedService?.name}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -95,8 +124,10 @@ const Summary = () => {
 
             <div className="bg-amber-50 p-4 rounded-lg mb-8 border border-amber-200">
               <p className="text-sm text-stone-700">
-                <strong>Konfirmasi telah dikirim ke:</strong><br />
-                📧 {bookingData.email}<br />
+                <strong>Konfirmasi telah dikirim ke:</strong>
+                <br />
+                📧 {bookingData.email}
+                <br />
                 📱 {bookingData.phone}
               </p>
             </div>
@@ -165,8 +196,12 @@ const Summary = () => {
                   <div className="flex items-start gap-3 p-4 bg-stone-50 rounded-lg">
                     <User className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
-                      <p className="text-sm text-stone-600 mb-1">Nama Lengkap</p>
-                      <p className="font-semibold text-stone-800">{bookingData.name}</p>
+                      <p className="text-sm text-stone-600 mb-1">
+                        Nama Lengkap
+                      </p>
+                      <p className="font-semibold text-stone-800">
+                        {bookingData.name}
+                      </p>
                     </div>
                   </div>
 
@@ -174,15 +209,21 @@ const Summary = () => {
                     <Mail className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <p className="text-sm text-stone-600 mb-1">Email</p>
-                      <p className="font-semibold text-stone-800">{bookingData.email}</p>
+                      <p className="font-semibold text-stone-800">
+                        {bookingData.email}
+                      </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3 p-4 bg-stone-50 rounded-lg">
                     <Phone className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
-                      <p className="text-sm text-stone-600 mb-1">Nomor Telepon</p>
-                      <p className="font-semibold text-stone-800">{bookingData.phone}</p>
+                      <p className="text-sm text-stone-600 mb-1">
+                        Nomor Telepon
+                      </p>
+                      <p className="font-semibold text-stone-800">
+                        {bookingData.phone}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -212,10 +253,16 @@ const Summary = () => {
                         className="w-24 h-24 rounded-lg object-cover flex-shrink-0"
                       />
                       <div className="flex-1">
-                        <h3 className="font-bold text-amber-900 mb-2 text-lg">{selectedService.name}</h3>
-                        <p className="text-sm text-stone-600 mb-3">{selectedService.description}</p>
+                        <h3 className="font-bold text-amber-900 mb-2 text-lg">
+                          {selectedService.name}
+                        </h3>
+                        <p className="text-sm text-stone-600 mb-3">
+                          {selectedService.description}
+                        </p>
                         <div className="flex flex-wrap gap-4 text-sm">
-                          <span className="font-semibold text-amber-700">{selectedService.price}</span>
+                          <span className="font-semibold text-amber-700">
+                            {selectedService.price}
+                          </span>
                           <span className="text-stone-400">•</span>
                           <span className="text-stone-600 flex items-center gap-1">
                             <Clock className="h-4 w-4" />
@@ -232,7 +279,9 @@ const Summary = () => {
                     <Calendar className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <p className="text-sm text-stone-600 mb-1">Tanggal</p>
-                      <p className="font-semibold text-stone-800">{formatDate(bookingData.date)}</p>
+                      <p className="font-semibold text-stone-800">
+                        {formatDate(bookingData.date)}
+                      </p>
                     </div>
                   </div>
 
@@ -240,7 +289,9 @@ const Summary = () => {
                     <Clock className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <p className="text-sm text-stone-600 mb-1">Waktu</p>
-                      <p className="font-semibold text-stone-800">{bookingData.time} WIB</p>
+                      <p className="font-semibold text-stone-800">
+                        {bookingData.time} WIB
+                      </p>
                     </div>
                   </div>
 
@@ -248,7 +299,9 @@ const Summary = () => {
                     <div className="flex items-start gap-3 p-4 bg-stone-50 rounded-lg">
                       <MessageSquare className="h-5 w-5 text-amber-700 mt-0.5 flex-shrink-0" />
                       <div className="flex-1">
-                        <p className="text-sm text-stone-600 mb-1">Catatan Tambahan</p>
+                        <p className="text-sm text-stone-600 mb-1">
+                          Catatan Tambahan
+                        </p>
                         <p className="text-stone-800">{bookingData.notes}</p>
                       </div>
                     </div>
@@ -259,22 +312,32 @@ const Summary = () => {
 
             <div className="space-y-6">
               <div className="bg-white rounded-2xl shadow-xl p-6 border border-amber-100">
-                <h3 className="text-xl font-bold text-amber-900 mb-4">Ringkasan Harga</h3>
-                
+                <h3 className="text-xl font-bold text-amber-900 mb-4">
+                  Ringkasan Harga
+                </h3>
+
                 <div className="space-y-3 mb-4 pb-4 border-b border-stone-200">
                   <div className="flex justify-between">
                     <span className="text-stone-600">Layanan</span>
-                    <span className="font-semibold text-stone-800">{selectedService?.price}</span>
+                    <span className="font-semibold text-stone-800">
+                      {selectedService?.price}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-stone-600">Durasi</span>
-                    <span className="text-stone-600">{selectedService?.duration}</span>
+                    <span className="text-stone-600">
+                      {selectedService?.duration}
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold text-amber-900">Total</span>
-                  <span className="text-2xl font-bold text-amber-700">{selectedService?.price}</span>
+                  <span className="text-lg font-bold text-amber-900">
+                    Total
+                  </span>
+                  <span className="text-2xl font-bold text-amber-700">
+                    {selectedService?.price}
+                  </span>
                 </div>
               </div>
 
@@ -284,8 +347,10 @@ const Summary = () => {
                   <span>Lokasi Salon</span>
                 </h3>
                 <p className="text-sm text-stone-700 mb-3">
-                  Jl. Kecantikan No. 123<br />
-                  Jakarta Selatan, 12345<br />
+                  Jl. Kecantikan No. 123
+                  <br />
+                  Jakarta Selatan, 12345
+                  <br />
                   Indonesia
                 </p>
                 <a
@@ -318,11 +383,14 @@ const Summary = () => {
 
               <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
                 <p className="text-xs text-stone-700">
-                  <strong>Catatan:</strong><br />
-                  • Konfirmasi akan dikirim via email & SMS<br />
-                  • Datang 10 menit lebih awal<br />
-                  • Pembatalan minimal H-1<br />
-                  • Hubungi kami jika ada perubahan
+                  <strong>Catatan:</strong>
+                  <br />
+                  • Konfirmasi akan dikirim via email & SMS
+                  <br />
+                  • Datang 10 menit lebih awal
+                  <br />
+                  • Pembatalan minimal H-1
+                  <br />• Hubungi kami jika ada perubahan
                 </p>
               </div>
             </div>
@@ -333,4 +401,4 @@ const Summary = () => {
   );
 };
 
-export default Summary; 
+export default Summary;

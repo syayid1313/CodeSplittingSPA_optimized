@@ -1,8 +1,15 @@
-import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Clock, DollarSign, CheckCircle, Heart, ArrowLeft, Calendar } from 'lucide-react';
+import React from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import {
+  Clock,
+  DollarSign,
+  CheckCircle,
+  Heart,
+  ArrowLeft,
+  Calendar,
+} from "lucide-react";
 
-import { servicesData } from '../Services/servicesdata';
+import { servicesData } from "../Services/Servicesdata";
 
 const ServiceDetail = () => {
   const { id } = useParams();
@@ -13,8 +20,13 @@ const ServiceDetail = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 py-12 sm:py-20 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-amber-900 mb-4">Layanan Tidak Ditemukan</h1>
-          <Link to="/services" className="text-amber-700 hover:text-orange-700 hover:underline font-semibold">
+          <h1 className="text-3xl sm:text-4xl font-bold text-amber-900 mb-4">
+            Layanan Tidak Ditemukan
+          </h1>
+          <Link
+            to="/services"
+            className="text-amber-700 hover:text-orange-700 hover:underline font-semibold"
+          >
             Kembali ke halaman layanan
           </Link>
         </div>
@@ -31,11 +43,17 @@ const ServiceDetail = () => {
       <div className="bg-white shadow-sm border-b border-amber-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-600">
-            <Link to="/" className="hover:text-amber-700 transition">Home</Link>
+            <Link to="/" className="hover:text-amber-700 transition">
+              Home
+            </Link>
             <span>/</span>
-            <Link to="/services" className="hover:text-amber-700 transition">Services</Link>
+            <Link to="/services" className="hover:text-amber-700 transition">
+              Services
+            </Link>
             <span>/</span>
-            <span className="text-amber-900 font-medium truncate">{service.name}</span>
+            <span className="text-amber-900 font-medium truncate">
+              {service.name}
+            </span>
           </div>
         </div>
       </div>
@@ -62,7 +80,7 @@ const ServiceDetail = () => {
                   {service.category}
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="bg-white p-3 sm:p-4 rounded-lg shadow-md border border-amber-100">
                   <div className="flex items-center gap-2 sm:gap-3">
@@ -71,19 +89,25 @@ const ServiceDetail = () => {
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm text-stone-600">Harga</p>
-                      <p className="text-sm sm:text-lg font-bold text-amber-900">{service.price}</p>
+                      <p className="text-sm sm:text-lg font-bold text-amber-900">
+                        {service.price}
+                      </p>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-white p-3 sm:p-4 rounded-lg shadow-md border border-amber-100">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <div className="bg-orange-100 p-2 sm:p-3 rounded-full">
                       <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-orange-700" />
                     </div>
                     <div>
-                      <p className="text-xs sm:text-sm text-stone-600">Durasi</p>
-                      <p className="text-sm sm:text-lg font-bold text-amber-900">{service.duration}</p>
+                      <p className="text-xs sm:text-sm text-stone-600">
+                        Durasi
+                      </p>
+                      <p className="text-sm sm:text-lg font-bold text-amber-900">
+                        {service.duration}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -110,7 +134,9 @@ const ServiceDetail = () => {
                   {service.details.map((detail, index) => (
                     <li key={index} className="flex items-start gap-2 sm:gap-3">
                       <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm sm:text-base text-stone-700">{detail}</span>
+                      <span className="text-sm sm:text-base text-stone-700">
+                        {detail}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -125,7 +151,9 @@ const ServiceDetail = () => {
                   {service.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-2 sm:gap-3">
                       <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm sm:text-base text-stone-700">{benefit}</span>
+                      <span className="text-sm sm:text-base text-stone-700">
+                        {benefit}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -146,8 +174,11 @@ const ServiceDetail = () => {
 
               <div className="bg-amber-100 p-3 sm:p-4 rounded-lg border border-amber-200">
                 <p className="text-xs sm:text-sm text-stone-700">
-                  Butuh konsultasi? Hubungi kami di{' '}
-                  <a href="tel:+6281234567890" className="text-amber-800 font-semibold hover:text-orange-700 hover:underline">
+                  Butuh konsultasi? Hubungi kami di{" "}
+                  <a
+                    href="tel:+6281234567890"
+                    className="text-amber-800 font-semibold hover:text-orange-700 hover:underline"
+                  >
                     +62 812-3456-7890
                   </a>
                 </p>
@@ -163,7 +194,7 @@ const ServiceDetail = () => {
             <h2 className="text-2xl sm:text-3xl font-bold text-amber-900 mb-6 sm:mb-8">
               Layanan Terkait
             </h2>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {relatedServices.map((relatedService) => (
                 <div
@@ -177,7 +208,7 @@ const ServiceDetail = () => {
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  
+
                   <div className="p-3 sm:p-4">
                     <h3 className="text-lg sm:text-xl font-bold text-amber-900 mb-2">
                       {relatedService.name}
@@ -185,7 +216,7 @@ const ServiceDetail = () => {
                     <p className="text-stone-600 mb-3 line-clamp-2 text-xs sm:text-sm">
                       {relatedService.description}
                     </p>
-                    
+
                     <div className="flex justify-between items-center mb-3">
                       <span className="text-base sm:text-lg font-bold text-amber-700">
                         {relatedService.price}
@@ -194,7 +225,7 @@ const ServiceDetail = () => {
                         {relatedService.duration}
                       </span>
                     </div>
-                    
+
                     <Link
                       to={`/services/${relatedService.id}`}
                       className="block text-center bg-gradient-to-r from-amber-600 to-orange-700 text-white py-2 rounded-lg hover:from-amber-700 hover:to-orange-800 transition-colors duration-300 text-xs sm:text-sm font-semibold shadow-md"
