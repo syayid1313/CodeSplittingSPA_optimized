@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, Filter } from "lucide-react";
-import { servicesData, categories } from "./Servicesdata";
+import { servicesData, categories } from "../Services/Servicesdata";
 
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
